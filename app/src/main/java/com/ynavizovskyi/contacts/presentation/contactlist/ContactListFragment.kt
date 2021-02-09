@@ -28,10 +28,12 @@ class ContactListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-
         contactsRecyclerView.layoutManager = layoutManager
         contactsRecyclerView.adapter = contactsAdapter
 
+        swiperefresh.setOnRefreshListener {
+            viewModel.loadContacts()
+        }
 
         observeData()
     }
@@ -39,6 +41,7 @@ class ContactListFragment : BaseFragment() {
     private fun observeData(){
         viewModel.contactsLiveData.observe(viewLifecycleOwner){ contacts ->
             contactsAdapter.setData(contacts)
+            swiperefresh.isRefreshing = false
         }
     }
 

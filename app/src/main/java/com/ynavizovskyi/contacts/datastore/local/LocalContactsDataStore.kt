@@ -2,6 +2,7 @@ package com.ynavizovskyi.contacts.datastore.local
 
 import com.ynavizovskyi.contacts.data.ContactData
 import com.ynavizovskyi.contacts.data.ContactsDataStore
+import com.ynavizovskyi.contacts.domain.entity.Contact
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -31,5 +32,9 @@ class LocalContactsDataStore @Inject constructor(private val contactDao: Contact
 
     override suspend fun deleteContact(id: Long) {
         contactDao.deleteById(id)
+    }
+
+    override suspend fun updateContact(contact: ContactData) {
+        contactDao.update(contact.toEntity())
     }
 }

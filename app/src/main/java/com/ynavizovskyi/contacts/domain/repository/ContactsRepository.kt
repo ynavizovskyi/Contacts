@@ -11,4 +11,6 @@ interface ContactsRepository {
 
     suspend fun deleteContact(id: Long)
 
+    suspend fun updateContact(contact: Contact)
+
 }

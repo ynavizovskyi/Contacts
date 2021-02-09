@@ -2,6 +2,7 @@ package com.ynavizovskyi.contacts.datastore.remote
 
 import com.ynavizovskyi.contacts.data.ContactData
 import com.ynavizovskyi.contacts.data.ContactsDataStore
+import com.ynavizovskyi.contacts.domain.entity.Contact
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -25,6 +26,10 @@ class RemoteContactsDataStore @Inject constructor(private val service: ContactsS
     }
 
     override suspend fun deleteContact(id: Long) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun updateContact(contact: ContactData) {
         TODO("Not yet implemented")
     }
 }

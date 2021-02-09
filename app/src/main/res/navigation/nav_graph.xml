@@ -19,7 +19,7 @@
             android:id="@+id/SecondFragment"
             android:name="com.ynavizovskyi.contacts.presentation.ContactDetailsFragment"
             android:label="@string/second_fragment_label"
-            tools:layout="@layout/fragment_second">
+            tools:layout="@layout/fragment_contact_details">
 
         <argument
                 android:name="contactId"

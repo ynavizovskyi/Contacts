@@ -7,10 +7,10 @@ import androidx.room.Update
 
 abstract class BaseRoomDao<E> {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insert(entity: E): Long
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insert(entities: List<E>): List<Long>
 
     @Update

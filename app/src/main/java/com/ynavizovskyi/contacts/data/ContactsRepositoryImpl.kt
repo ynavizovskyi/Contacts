@@ -30,4 +30,8 @@ class ContactsRepositoryImpl @Inject constructor(
     override suspend fun deleteContact(id: Long) {
         localStore.deleteContact(id)
     }
+
+    override suspend fun updateContact(contact: Contact) {
+        localStore.updateContact(contact.toData())
+    }
 }

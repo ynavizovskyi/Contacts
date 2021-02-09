@@ -1,5 +1,6 @@
 package com.ynavizovskyi.contacts.data
 
+import com.ynavizovskyi.contacts.domain.entity.Contact
 import kotlinx.coroutines.flow.Flow
 
 interface ContactsDataStore {
@@ -13,5 +14,7 @@ interface ContactsDataStore {
     suspend fun observeById(id: Long): Flow<ContactData>
 
     suspend fun deleteContact(id: Long)
+
+    suspend fun updateContact(contact: ContactData)
 
 }

@@ -7,12 +7,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 abstract class ContactDao : BaseRoomDao<ContactEntity>() {
 
-    @Query("DELETE FROM ContactEntity")
-    abstract fun deleteAll()
-
-    @Query(" DELETE FROM ContactEntity WHERE id = :id")
-    abstract fun deleteById(id: Long)
-
     @Query(" SELECT * FROM ContactEntity")
     abstract suspend fun selectAll(): List<ContactEntity>
 
@@ -21,5 +15,11 @@ abstract class ContactDao : BaseRoomDao<ContactEntity>() {
 
     @Query(" SELECT * FROM ContactEntity WHERE id = :id")
     abstract fun observeById(id: Long): Flow<ContactEntity>
+
+    @Query("DELETE FROM ContactEntity")
+    abstract fun deleteAll()
+
+    @Query(" DELETE FROM ContactEntity WHERE id = :id")
+    abstract fun deleteById(id: Long)
 
 }

@@ -10,4 +10,6 @@ interface ContactsDataStore {
 
     suspend fun observeAll(): Flow<List<ContactData>>
 
+    suspend fun observeById(id: Long): Flow<ContactData>
+
 }

@@ -19,4 +19,8 @@ class RemoteContactsDataStore @Inject constructor(private val service: ContactsS
     override suspend fun observeAll(): Flow<List<ContactData>> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun observeById(id: Long): Flow<ContactData> {
+        TODO("Not yet implemented")
+    }
 }

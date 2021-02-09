@@ -1,7 +1,7 @@
 package com.ynavizovskyi.contacts.di
 
 import com.ynavizovskyi.contacts.presentation.contactlist.ContactListFragment
-import com.ynavizovskyi.contacts.presentation.SecondFragment
+import com.ynavizovskyi.contacts.presentation.ContactDetailsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,6 +12,6 @@ abstract class FragmentBuilderModule {
     abstract fun bindSignInFragment(): ContactListFragment?
 
     @ContributesAndroidInjector
-    abstract fun bindMainFragment(): SecondFragment?
+    abstract fun bindMainFragment(): ContactDetailsFragment?
 
 }

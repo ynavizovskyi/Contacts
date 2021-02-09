@@ -16,5 +16,5 @@ fun RemoteContact.toData(): ContactData {
     val pictureUrl = picture.medium
     val email = email
 
-    return ContactData(firstName, lastName, email, pictureUrl)
+    return ContactData(-1, firstName, lastName, email, pictureUrl)
 }

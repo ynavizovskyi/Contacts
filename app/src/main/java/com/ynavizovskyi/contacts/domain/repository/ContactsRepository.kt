@@ -7,4 +7,6 @@ interface ContactsRepository {
 
     suspend fun observeContacts(): Flow<List<Contact>>
 
+    suspend fun observeContactById(id: Long): Flow<Contact>
+
 }

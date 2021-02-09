@@ -12,14 +12,18 @@
             tools:layout="@layout/fragment_contact_list">
 
         <action
-                android:id="@+id/action_FirstFragment_to_SecondFragment"
+                android:id="@+id/action_listFragment_to_DetailsFragment"
                 app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
             android:id="@+id/SecondFragment"
-            android:name="com.ynavizovskyi.contacts.presentation.SecondFragment"
+            android:name="com.ynavizovskyi.contacts.presentation.ContactDetailsFragment"
             android:label="@string/second_fragment_label"
             tools:layout="@layout/fragment_second">
+
+        <argument
+                android:name="contactId"
+                app:argType="long" />
 
         <action
                 android:id="@+id/action_SecondFragment_to_FirstFragment"

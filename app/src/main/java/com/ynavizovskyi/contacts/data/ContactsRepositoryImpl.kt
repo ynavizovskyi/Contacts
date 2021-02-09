@@ -23,8 +23,8 @@ class ContactsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun observeContactById(id: Long): Flow<Contact> {
-        return localStore.observeById(id).map { it.toDomain() }
+    override suspend fun observeContactById(id: Long): Flow<Contact?> {
+        return localStore.observeById(id).map { it?.toDomain() }
     }
 
     override suspend fun deleteContact(id: Long) {

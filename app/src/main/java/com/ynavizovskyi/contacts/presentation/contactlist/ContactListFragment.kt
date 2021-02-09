@@ -30,6 +30,12 @@ class ContactListFragment : BaseFragment() {
 
     private val contactsAdapter = ContactsAdapter(contactItemClickListener, deleteContactListener)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.observerContacts()
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +55,6 @@ class ContactListFragment : BaseFragment() {
     }
 
     private fun observeData(){
-        viewModel.observerContacts()
         viewModel.contactsLiveData.observe(viewLifecycleOwner){ contacts ->
             contactsAdapter.setData(contacts)
             swiperefresh.isRefreshing = false

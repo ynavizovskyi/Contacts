@@ -15,6 +15,7 @@
                 android:id="@+id/action_listFragment_to_DetailsFragment"
                 app:destination="@id/SecondFragment" />
     </fragment>
+
     <fragment
             android:id="@+id/SecondFragment"
             android:name="com.ynavizovskyi.contacts.presentation.ContactDetailsFragment"
@@ -28,5 +29,21 @@
         <action
                 android:id="@+id/action_SecondFragment_to_FirstFragment"
                 app:destination="@id/FirstFragment" />
+
+        <action
+                android:id="@+id/action_SecondFragment_to_ThirdFragment"
+                app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/ThirdFragment"
+            android:name="com.ynavizovskyi.contacts.presentation.EditContactFragment"
+            android:label="@string/third_fragment_label"
+            tools:layout="@layout/fragment_edit_contact">
+
+        <argument
+                android:name="contactId"
+                app:argType="long" />
+
     </fragment>
 </navigation>

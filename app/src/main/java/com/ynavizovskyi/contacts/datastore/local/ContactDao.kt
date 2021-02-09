@@ -14,7 +14,7 @@ abstract class ContactDao : BaseRoomDao<ContactEntity>() {
     abstract fun observeAll(): Flow<List<ContactEntity>>
 
     @Query(" SELECT * FROM ContactEntity WHERE id = :id")
-    abstract fun observeById(id: Long): Flow<ContactEntity>
+    abstract fun observeById(id: Long): Flow<ContactEntity?>
 
     @Query("DELETE FROM ContactEntity")
     abstract fun deleteAll()

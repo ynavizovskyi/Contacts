@@ -12,7 +12,7 @@ class ObserveContactUseCase @Inject constructor(
     private val dispatcherManager: DispatcherManager
 ) {
 
-    suspend operator fun invoke(id: Long): Flow<Contact> {
+    suspend operator fun invoke(id: Long): Flow<Contact?> {
         return withContext(dispatcherManager.io){
             repository.observeContactById(id)
         }

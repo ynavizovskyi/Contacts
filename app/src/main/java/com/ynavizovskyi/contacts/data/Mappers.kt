@@ -2,4 +2,4 @@ package com.ynavizovskyi.contacts.data
 
 import com.ynavizovskyi.contacts.domain.entity.Contact
 
-fun ContactData.toDomain() = Contact(lastName)
+fun ContactData.toDomain() = Contact(id, firstName, lastName, email, pictureUrl)

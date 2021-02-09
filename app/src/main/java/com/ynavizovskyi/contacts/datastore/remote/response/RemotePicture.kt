@@ -1,3 +1,3 @@
 package com.ynavizovskyi.contacts.datastore.remote.response
 
-data class ContactRemote(val name: NameRemote)
+data class RemotePicture(val medium: String)

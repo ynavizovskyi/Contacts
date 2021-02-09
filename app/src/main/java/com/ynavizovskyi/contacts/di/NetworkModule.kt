@@ -21,7 +21,7 @@ class NetworkModule {
     @Singleton
     @Named(BASE_URL)
     fun providesBaseUrl(): String {
-        return "https://randomuser.me/api/"
+        return "https://randomuser.me/"
     }
 
     @Provides

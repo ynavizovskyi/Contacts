@@ -8,7 +8,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityModule {
 
     @ContributesAndroidInjector
-    abstract fun bindMainFragment(): ContainerActivity?
+    abstract fun bindContainer(): ContainerActivity?
 
 
 }

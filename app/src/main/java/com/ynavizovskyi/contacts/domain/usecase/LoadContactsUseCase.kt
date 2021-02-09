@@ -11,7 +11,7 @@ class LoadContactsUseCase @Inject constructor(
     private val dispatcherManager: DispatcherManager
 ) {
 
-    suspend operator fun invoke(email: String, password: String): List<Contact> {
+    suspend operator fun invoke(): List<Contact> {
         return withContext(dispatcherManager.io){
             repository.load()
         }

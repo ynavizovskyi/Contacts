@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface ContactsService {
 
-    @GET("")
+    @GET("api/")
     suspend fun getContacts(@Query("results") listSize: Int): GetContactsResponse
 
 }

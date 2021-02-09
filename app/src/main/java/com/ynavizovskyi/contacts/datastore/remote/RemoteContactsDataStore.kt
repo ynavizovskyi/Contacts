@@ -13,7 +13,7 @@ class RemoteContactsDataStore @Inject constructor(private val service: ContactsS
     }
 
     override suspend fun load(): List<ContactData> {
-        return service.getContacts(50).toContactsData()
+        return service.getContacts(10).toContactsData()
     }
 
     override suspend fun observeAll(): Flow<List<ContactData>> {
@@ -21,6 +21,10 @@ class RemoteContactsDataStore @Inject constructor(private val service: ContactsS
     }
 
     override suspend fun observeById(id: Long): Flow<ContactData> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun deleteContact(id: Long) {
         TODO("Not yet implemented")
     }
 }

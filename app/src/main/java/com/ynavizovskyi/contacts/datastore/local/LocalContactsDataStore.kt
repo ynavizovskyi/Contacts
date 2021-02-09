@@ -28,4 +28,8 @@ class LocalContactsDataStore @Inject constructor(private val contactDao: Contact
     override suspend fun observeById(id: Long): Flow<ContactData> {
         return contactDao.observeById(id).map { it.toData() }
     }
+
+    override suspend fun deleteContact(id: Long) {
+        contactDao.deleteById(id)
+    }
 }

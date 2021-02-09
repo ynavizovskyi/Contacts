@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ynavizovskyi.contacts.domain.entity.Contact
+import com.ynavizovskyi.contacts.domain.usecase.DeleteContactUseCase
 import com.ynavizovskyi.contacts.domain.usecase.ObserveContactsUseCase
 import com.ynavizovskyi.contacts.domain.usecase.ObserveContactUseCase
 import kotlinx.coroutines.flow.collect
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 class ContactsViewModel @Inject constructor(
     private val observeContactsUseCase: ObserveContactsUseCase,
-    private val observeContactUseCase: ObserveContactUseCase
+    private val observeContactUseCase: ObserveContactUseCase,
+    private val deleteContactUseCase: DeleteContactUseCase
 ) :
     ViewModel() {
 
@@ -38,6 +40,12 @@ class ContactsViewModel @Inject constructor(
                 .collect {
                     contactLiveData.value = it
                 }
+        }
+    }
+
+    fun deleteContact(id: Long){
+        viewModelScope.launch {
+            deleteContactUseCase.invoke(id)
         }
     }
 

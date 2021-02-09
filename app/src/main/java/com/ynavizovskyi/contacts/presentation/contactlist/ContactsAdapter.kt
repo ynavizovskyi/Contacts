@@ -8,7 +8,10 @@ import com.ynavizovskyi.contacts.R
 import com.ynavizovskyi.contacts.domain.entity.Contact
 import kotlinx.android.synthetic.main.item_contact.view.*
 
-class ContactsAdapter(private val itemClickListener: (Contact) -> Unit) :
+class ContactsAdapter(
+    private val itemClickListener: (Contact) -> Unit,
+    private val deleteContactListener: (Contact) -> Unit
+) :
     RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
 
     private var data: List<Contact> = emptyList()
@@ -21,7 +24,7 @@ class ContactsAdapter(private val itemClickListener: (Contact) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.item_contact, parent, false)
-        return ViewHolder(view, itemClickListener)
+        return ViewHolder(view, itemClickListener, deleteContactListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -31,7 +34,10 @@ class ContactsAdapter(private val itemClickListener: (Contact) -> Unit) :
 
     override fun getItemCount() = data.size
 
-    class ViewHolder(itemView: View, private val itemClickListener: (Contact) -> Unit) :
+    class ViewHolder(
+        itemView: View, private val itemClickListener: (Contact) -> Unit,
+        private val deleteContactListener: (Contact) -> Unit
+    ) :
         RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Contact) {
@@ -40,6 +46,9 @@ class ContactsAdapter(private val itemClickListener: (Contact) -> Unit) :
             itemView.textEmail.text = item.email
             itemView.textUserPic.text = item.pictureUrl
             itemView.setOnClickListener { itemClickListener.invoke(item) }
+            itemView.buttonDelete.setOnClickListener {
+                deleteContactListener.invoke(item)
+            }
         }
 
     }

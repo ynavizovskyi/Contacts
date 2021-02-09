@@ -24,8 +24,11 @@ class ContactListFragment : BaseFragment() {
         val bundle = bundleOf("contactId" to contact.id)
         findNavController().navigate(R.id.action_listFragment_to_DetailsFragment, bundle)
     }
+    private val deleteContactListener: (Contact) -> Unit = { contact ->
+        viewModel.deleteContact(contact.id)
+    }
 
-    private val contactsAdapter = ContactsAdapter(contactItemClickListener)
+    private val contactsAdapter = ContactsAdapter(contactItemClickListener, deleteContactListener)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

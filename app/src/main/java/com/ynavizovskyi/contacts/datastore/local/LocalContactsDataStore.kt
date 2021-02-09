@@ -11,6 +11,7 @@ class LocalContactsDataStore @Inject constructor(private val contactDao: Contact
 
     override suspend fun save(contacts: List<ContactData>) {
         val contactEntities = contacts.map { it.toEntity() }
+        contactDao.deleteAll()
         contactDao.insert(contactEntities)
     }
 

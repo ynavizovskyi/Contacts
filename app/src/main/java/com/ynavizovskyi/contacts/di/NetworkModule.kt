@@ -1,12 +1,12 @@
 package com.ynavizovskyi.contacts.di
 
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.ynavizovskyi.contacts.common.BASE_URL
 import com.ynavizovskyi.contacts.datastore.remote.ContactsService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -35,10 +35,14 @@ class NetworkModule {
     @Singleton
     @JvmSuppressWildcards
     fun providesOkHttpClient(): OkHttpClient {
+        val logginInterceptor = HttpLoggingInterceptor()
+        logginInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+
         var builder = OkHttpClient
             .Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(logginInterceptor)
         return builder.build()
     }
 

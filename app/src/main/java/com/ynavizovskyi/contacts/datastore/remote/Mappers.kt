@@ -9,11 +9,12 @@ fun GetContactsResponse.toContactsData(): List<ContactData>{
 }
 
 fun RemoteContact.toData(): ContactData {
-    val id = id.value.toLong()
+    //not all the users have id; ignore it
+//    val id = id.value.toLong()
     val firstName = name.first
     val lastName = name.last
     val pictureUrl = picture.medium
     val email = email
 
-    return ContactData(id, firstName, lastName, email, pictureUrl)
+    return ContactData(firstName, lastName, email, pictureUrl)
 }

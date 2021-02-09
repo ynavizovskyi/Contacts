@@ -35,6 +35,6 @@ class LocalContactsDataStore @Inject constructor(private val contactDao: Contact
     }
 
     override suspend fun updateContact(contact: ContactData) {
-        contactDao.update(contact.toEntity())
+        contactDao.update(contact.id, contact.firstName, contact.lastName, contact.email)
     }
 }

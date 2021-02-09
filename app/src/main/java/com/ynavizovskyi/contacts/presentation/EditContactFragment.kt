@@ -35,7 +35,7 @@ class EditContactFragment : BaseFragment() {
             contact?.let {
                 val editedContact = it.copy(firstName = it.firstName + " EDITED", lastName = it.lastName + " EDITED", email = it.email + " EDITED")
 
-                viewModel.updateContact(it)
+                viewModel.updateContact(editedContact)
             }
         }
 

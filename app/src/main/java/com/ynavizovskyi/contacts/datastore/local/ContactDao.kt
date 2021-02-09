@@ -22,4 +22,9 @@ abstract class ContactDao : BaseRoomDao<ContactEntity>() {
     @Query(" DELETE FROM ContactEntity WHERE id = :id")
     abstract fun deleteById(id: Long)
 
+    @Query(" UPDATE ContactEntity SET firstName = :firstName AND lastName = :lastName AND email = :email WHERE id = :id")
+    abstract fun update(id: Long, firstName: String, lastName: String, email: String)
+
+
+
 }
